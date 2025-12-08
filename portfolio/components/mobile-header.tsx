@@ -23,7 +23,7 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
       <div className="flex items-center justify-between px-4 py-3">
         {/* Avatar & Name */}
         <div className="flex items-center gap-3">
-          <Avatar className="w-10 h-10 border border-white/10">
+          <Avatar className="w-24 h-24 border border-white/10">
             <AvatarImage src="/Actual.JPG" alt="Peter Mbugua" />
             <AvatarFallback className="text-xs bg-secondary">PM</AvatarFallback>
           </Avatar>
