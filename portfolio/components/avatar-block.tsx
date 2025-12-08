@@ -16,7 +16,7 @@ export function AvatarBlock() {
 
       {/* Avatar */}
       <Avatar className="w-32 h-32 border-2 border-white/10 relative">
-        <AvatarImage src="/Actual.jpg" alt="Peter Mbugua" className="object-cover" />
+        <AvatarImage src="/Actual.JPG" alt="Peter Mbugua" className="object-cover" />
         <AvatarFallback className="text-2xl bg-secondary text-foreground">PM</AvatarFallback>
       </Avatar>
     </motion.div>
