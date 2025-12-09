@@ -3,64 +3,71 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Instagram, Mail, Globe, ExternalLink, Twitter } from "lucide-react"
+import { NijueIcon } from "@/components/ui/nijue-icon"
 
 const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
-    href: "https://github.com",
-    description: "Check out my code",
+    href: "https://github.com/amCtrld",
+    description: "Check out my coding journey",
+  },
+  {
+    name: "nijue.me",
+    icon: NijueIcon,
+    href: "https://nijue.me/mbugua",
+    description: "My professional timeline profile",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com",
+    href: "https://linkedin.com/in/petembugua",
     description: "Connect professionally",
   },
   {
     name: "Twitter / X",
     icon: Twitter,
-    href: "https://twitter.com",
+    href: "https://twitter.com/mbugua_",
     description: "Follow my thoughts",
   },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://instagram.com",
+    href: "https://instagram.com/knscpt",
     description: "Behind the scenes",
   },
 ]
 
 const contactLinks = [
   {
-    name: "Email",
+    name: "Work Email",
     icon: Mail,
-    href: "mailto:hello@petermbugua.com",
-    description: "Get in touch",
+    href: "mailto:ceo@bowlrms.com",
+    description: "Get in touch, let's work together",
   },
   {
-    name: "Website",
-    icon: Globe,
-    href: "https://petermbugua.com",
-    description: "Personal domain",
+    name: "Personal Email",
+    icon: Mail,
+    href: "mailto:petrembugua@gmail.com",
+    description: "Say hello, let's connect",
   },
 ]
 
 const productLinks = [
   {
     name: "BowlRMS",
-    href: "#",
+    href: "https://bowlrms.com",
     color: "#ff7d00",
   },
   {
     name: "nijue.me",
-    href: "#",
-    color: "#0099ff",
+    href: "https://nijue.me",
+    color: "cyan",
   },
   {
     name: "Bidbee",
-    href: "#",
-    color: "#a40000",
+    href: "https://bidbee.live",
+    color: "#4b2c0dff",
   },
 ]
 

@@ -37,7 +37,7 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
       </div>
 
       {/* Navigation Tabs */}
-      <TabsList className="flex flex-col w-full bg-transparent gap-2 mt-6">
+      <TabsList className="flex flex-col w-full bg-transparent gap-2 mt-12">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.value

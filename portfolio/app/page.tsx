@@ -46,7 +46,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Layout - stacked */}
-        <div className="lg:hidden min-h-screen pt-[30vh]">
+        <div className="lg:hidden min-h-screen pt-[150px] pb-20">
           <div className="p-6">
             <TabsContent value="home" className="mt-0">
               <ContentHome />

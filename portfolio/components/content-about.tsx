@@ -29,24 +29,34 @@ const highlights = [
 
 const timeline = [
   {
+    year: "2026",
+    title: "Planning Launch",
+    description: "All three projects, nijue.me, Bidbee, and BowlRMS MVPs are slated for launch in 2026, marking significant milestones in my journey as a product builder.",
+  },
+  {
+    year: "2025",
+    title: "Building nijue.me & Bidbee",
+    description: "Towards the end of 2025, started working on nijue.me and Bidbee. nijue.me is a platform where you can timeline your journey and showcase your growth while Bidbee is an localized bidding platform.",
+  },
+  {
+    year: "2025",
+    title: "BowlRMS Development",
+    description: "Began the development of BowlRMS, a comprehensive restaurant management and digital menus tool.",
+  },
+  {
     year: "2024",
-    title: "Building BowlRMS & Bidbee",
-    description: "Leading product development for restaurant management and bidding platforms.",
+    title: "Systems Engineering, ALX",
+    description: "Albeit I participated in the ALX Systems Engineering program for three months, the experience provided me with a strong foundation in systems fundamentals and broadened my perspective on how to approach engineering challenges.",
   },
   {
     year: "2023",
-    title: "Launched nijue.me",
-    description: "Created a platform for sharing knowledge and connecting with others.",
-  },
-  {
-    year: "2022",
-    title: "Systems Engineering",
-    description: "Focused on building scalable backend systems and infrastructure.",
+    title: "Started Coding Journey",
+    description: "Began learning web development and building small projects.",
   },
   {
     year: "2021",
-    title: "Started Coding Journey",
-    description: "Began learning web development and building small projects.",
+    title: "Arduino & Electronics Enthusiast",
+    description: "Initiated my exploration into electronics and programming through Arduino projects, sparking my passion for technology and innovation.",
   },
 ]
 
@@ -85,7 +95,7 @@ export function ContentAbout() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="p-4 rounded-xl bg-card border border-border hover:border-white/20 transition-colors"
               >
-                <Icon className="w-5 h-5 text-electric-blue mb-3" />
+                <Icon className="w-5 h-5 text-[#ff7d00] mb-3" />
                 <h4 className="font-medium text-foreground mb-1">{item.title}</h4>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
@@ -102,7 +112,7 @@ export function ContentAbout() {
             <AccordionItem key={index} value={`item-${index}`} className="border-border">
               <AccordionTrigger className="hover:no-underline py-4">
                 <div className="flex items-center gap-4">
-                  <span className="text-sm font-mono text-electric-blue">{item.year}</span>
+                  <span className="text-sm font-mono text-[#ff7d00]">{item.year}</span>
                   <span className="text-foreground">{item.title}</span>
                 </div>
               </AccordionTrigger>

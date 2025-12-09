@@ -11,21 +11,21 @@ const projects = [
     description: "A comprehensive restaurant management system for modern food businesses.",
     status: "active",
     color: "#ff7d00",
-    link: "#",
+    link: "https://bowlrms.com",
   },
   {
     title: "nijue.me",
     description: "A platform for sharing knowledge and connecting with like-minded individuals.",
     status: "active",
-    color: "#0099ff",
-    link: "#",
+    color: "cyan",
+    link: "https://nijue.me",
   },
   {
     title: "Bidbee",
     description: "An intelligent bidding platform that streamlines procurement processes.",
     status: "active",
-    color: "#a40000",
-    link: "#",
+    color: "#4b2c0dff",
+    link: "https://bidbee.live",
   },
   {
     title: "Ubantu",
@@ -74,7 +74,11 @@ export function ContentWorks() {
               </CardHeader>
               <CardContent>
                 {project.link ? (
-                  <Button variant="ghost" className="text-sm text-muted-foreground hover:text-foreground p-0 h-auto">
+                  <Button 
+                    variant="ghost" 
+                    className="text-sm text-muted-foreground hover:text-foreground p-0 h-auto"
+                    onClick={() => window.open(project.link, '_blank')}
+                  >
                     View Project
                     <ArrowUpRight className="w-4 h-4 ml-1" />
                   </Button>

@@ -32,7 +32,7 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
       </div>
 
       {/* Horizontal Tabs */}
-      <TabsList className="flex w-full bg-transparent px-2 pb-2 gap-1">
+      <TabsList className="flex w-full bg-transparent px-2 pb-2 gap-2">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.value
@@ -42,12 +42,12 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
               value={item.value}
               onClick={() => setActiveTab(item.value)}
               className={`
-                flex-1 py-2 px-3 rounded-lg text-xs
+                flex-1 py-2 px-3 rounded-none text-md border-0 border-b-2 border-muted
                 transition-all duration-200
                 ${isActive ? "bg-white/10 text-foreground" : "text-muted-foreground"}
               `}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="w-6 h-6" />
             </TabsTrigger>
           )
         })}
