@@ -72,7 +72,7 @@ export function ContentAbout() {
       <section>
         <h2 className="text-3xl font-bold text-foreground mb-6">About Me</h2>
         <p className="text-muted-foreground leading-relaxed text-lg">
-          I&apos;m Peter Mbugua, a systems engineer and product builder based in Kenya. I specialize in creating digital
+          I&apos;m Peter Mbugua, a curious and persistent systems developer and product builder based in Kenya. I specialize in creating digital
           products that solve real-world problems, with a focus on clean architecture and exceptional user experiences.
         </p>
         <p className="text-muted-foreground leading-relaxed text-lg mt-4">
