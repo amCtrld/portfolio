@@ -45,7 +45,7 @@ export function ContentHome() {
           className="mt-12 flex items-center gap-4"
         >
           <div className="h-px w-12 bg-border" />
-          <p className="text-sm text-muted-foreground">Systems Engineer & Product Builder</p>
+          <p className="text-sm text-muted-foreground">Systems Developer & Product Builder</p>
         </motion.div>
 
         <motion.div

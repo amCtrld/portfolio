@@ -56,7 +56,7 @@ export function ContentPhotos() {
     >
       <h2 className="text-3xl font-bold text-foreground mb-8">Photos</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {photos.map((photo, index) => (
           <motion.div
             key={index}
@@ -74,6 +74,9 @@ export function ContentPhotos() {
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
           </motion.div>
         ))}
+      </div> */}
+      <div className="text-lg text-muted-foreground text-center italic">
+        Working on this section...
       </div>
 
       <p className="text-sm text-muted-foreground text-center mt-8">
