@@ -54,7 +54,7 @@ export function ContentHome() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-24 flex items-center gap-4 px-4 py-2 bg-muted/20 border-l-4 border-border/50"
         >
-          <p className="text-sm text-muted-foreground">To serve wholeheartedly,to venture bravely and to build with determination</p>
+          <p className="text-sm text-muted-foreground">To serve wholeheartedly, to venture bravely and to build with determination</p>
         </motion.div>
       </div>
     </motion.div>

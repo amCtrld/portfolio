@@ -5,42 +5,42 @@ import Image from "next/image"
 
 const photos = [
   {
-    src: "/nighttime-cityscape.png",
+    src: "/autojack.jpg",
     alt: "Cityscape",
     span: "col-span-2",
   },
   {
-    src: "/laptop-and-coffee-workspace-minimal.jpg",
+    src: "/bike.jpeg",
     alt: "Workspace",
     span: "col-span-1",
   },
   {
-    src: "/abstract-architecture-modern-building.jpg",
+    src: "/me2.jpg",
     alt: "Architecture",
     span: "col-span-1",
   },
   {
-    src: "/team-collaboration-office.png",
+    src: "/me7.jpg",
     alt: "Team meeting",
     span: "col-span-2",
   },
   {
-    src: "/nature-landscape-mountains-sunset.jpg",
+    src: "/me3.jpg",
     alt: "Mountains",
     span: "col-span-1",
   },
   {
-    src: "/urban-street-life.png",
+    src: "/me6.jpg",
     alt: "Street",
     span: "col-span-1",
   },
   {
-    src: "/technology-devices-minimal-setup.jpg",
+    src: "/me4.jpg",
     alt: "Tech setup",
     span: "col-span-1",
   },
   {
-    src: "/creative-design-studio-artistic.jpg",
+    src: "/me5.jpg",
     alt: "Design studio",
     span: "col-span-1",
   },
@@ -55,8 +55,11 @@ export function ContentPhotos() {
       className="max-w-4xl"
     >
       <h2 className="text-3xl font-bold text-foreground mb-8">Photos</h2>
+      <div className="text-lg text-muted-foreground text-center italic py-4">
+        Still working on the content...
+      </div>
 
-      {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {photos.map((photo, index) => (
           <motion.div
             key={index}
@@ -74,9 +77,6 @@ export function ContentPhotos() {
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
           </motion.div>
         ))}
-      </div> */}
-      <div className="text-lg text-muted-foreground text-center italic">
-        Working on this section...
       </div>
 
       <p className="text-sm text-muted-foreground text-center mt-8">
