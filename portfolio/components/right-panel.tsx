@@ -2,7 +2,7 @@
 
 import { TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AvatarBlock } from "@/components/avatar-block"
-import { Home, User, Briefcase, Link2, Camera } from "lucide-react"
+import { Home, User, Briefcase, Link2, Camera, FilePenLine } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface RightPanelProps {
@@ -16,6 +16,7 @@ const navItems = [
   { value: "works", label: "Works", icon: Briefcase },
   { value: "links", label: "Links", icon: Link2 },
   { value: "photos", label: "Photos", icon: Camera },
+  { value: "journey", label: "Journey", icon: FilePenLine },
 ]
 
 export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {

@@ -52,8 +52,14 @@ export function ContentPhotos() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="max-w-4xl"
+      className="max-w-4xl relative"
     >
+      {/* Grid background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      </div>
+
+      <div className="relative">
       <h2 className="text-3xl font-bold text-foreground mb-8">Photos</h2>
       <div className="text-lg text-muted-foreground text-center italic py-4">
         Still working on the content...
@@ -82,6 +88,7 @@ export function ContentPhotos() {
       <p className="text-sm text-muted-foreground text-center mt-8">
         A glimpse into my world — work, travel, and everything in between.
       </p>
+      </div>
     </motion.div>
   )
 }

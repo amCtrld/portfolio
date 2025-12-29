@@ -9,6 +9,7 @@ import { ContentAbout } from "@/components/content-about"
 import { ContentWorks } from "@/components/content-works"
 import { ContentLinks } from "@/components/content-links"
 import { ContentPhotos } from "@/components/content-photos"
+import { ContentJourney } from "@/components/content-journey"
 import { MobileHeader } from "@/components/mobile-header"
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
             <TabsContent value="photos" className="mt-0 h-full">
               <ContentPhotos />
             </TabsContent>
+            <TabsContent value="journey" className="mt-0 h-full">
+              <ContentJourney />
+            </TabsContent>
           </LeftPanel>
 
           {/* Right Panel - fixed sidebar */}
@@ -62,6 +66,9 @@ export default function Home() {
             </TabsContent>
             <TabsContent value="photos" className="mt-0">
               <ContentPhotos />
+            </TabsContent>
+            <TabsContent value="journey" className="mt-0">
+              <ContentJourney />
             </TabsContent>
           </div>
         </div>

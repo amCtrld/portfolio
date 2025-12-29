@@ -77,8 +77,14 @@ export function ContentLinks() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="max-w-xl space-y-12"
+      className="max-w-xl space-y-12 relative"
     >
+      {/* Grid background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      </div>
+
+      <div className="relative">
       <h2 className="text-3xl font-bold text-foreground">Links</h2>
 
       {/* Social Links */}
@@ -176,6 +182,7 @@ export function ContentLinks() {
           ))}
         </div>
       </section>
+      </div>
     </motion.div>
   )
 }

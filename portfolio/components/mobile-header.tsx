@@ -2,7 +2,7 @@
 
 import { TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Home, User, Briefcase, Link2, Camera } from "lucide-react"
+import { Home, User, Briefcase, Link2, Camera, FilePenLine } from "lucide-react"
 
 interface MobileHeaderProps {
   activeTab: string
@@ -15,6 +15,7 @@ const navItems = [
   { value: "works", icon: Briefcase },
   { value: "links", icon: Link2 },
   { value: "photos", icon: Camera },
+  { value: "journey", icon: FilePenLine },
 ]
 
 export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {

@@ -128,8 +128,14 @@ export function ContentWorks() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="max-w-3xl"
+      className="max-w-3xl relative"
     >
+      {/* Grid background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      </div>
+
+      <div className="relative">
       <h2 className="text-3xl font-bold text-foreground mb-8">Works</h2>
 
       <Tabs defaultValue="main" className="w-full">
@@ -146,6 +152,7 @@ export function ContentWorks() {
           <ProjectGrid projects={otherProjects} />
         </TabsContent>
       </Tabs>
+      </div>
     </motion.div>
   )
 }
