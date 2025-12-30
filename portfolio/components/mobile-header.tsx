@@ -49,8 +49,8 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
         {/* Avatar & Name */}
         <div className="flex items-center gap-3">
 
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_left,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100" />
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_right,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100" />
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_left,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100 pointer-events-none" />
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_right,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100 pointer-events-none" />
 
           <div className="relative">
             <Avatar className="w-24 h-24 border border-white/10">
