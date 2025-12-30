@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import { TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AvatarBlock } from "@/components/avatar-block"
-import { Home, User, Briefcase, Link2, Camera, FilePenLine } from "lucide-react"
-import { motion } from "framer-motion"
+import { TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AvatarBlock } from "@/components/avatar-block";
+import {
+  Home,
+  User,
+  Briefcase,
+  Link2,
+  Camera,
+  FilePenLine,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 interface RightPanelProps {
-  activeTab: string
-  setActiveTab: (tab: string) => void
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
 }
 
 const navItems = [
@@ -17,7 +24,7 @@ const navItems = [
   { value: "links", label: "Links", icon: Link2 },
   { value: "photos", label: "Photos", icon: Camera },
   { value: "journey", label: "Journey", icon: FilePenLine },
-]
+];
 
 export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
   return (
@@ -27,21 +34,21 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="w-[380px] min-w-[380px] h-full border-l border-border bg-card/50 flex flex-col items-center py-12 px-8"
     >
-      <div className="mb-6">
+      <div className="mb-12">
         {/* Avatar Block */}
-      <AvatarBlock />
+        <AvatarBlock />
 
-      {/* Tagline */}
-      <p className="text-muted-foreground text-sm text-center mt-6 mb-10 leading-relaxed">
-        Peter Mbugua — Building with JavaScript.
-      </p>
+        {/* Tagline */}
+        <p className="text-muted-foreground text-sm text-center mt-6 mb-10 leading-relaxed">
+          Peter Mbugua — Building with JavaScript.
+        </p>
       </div>
 
       {/* Navigation Tabs */}
       <TabsList className="flex flex-col w-full bg-transparent gap-2 mt-12">
         {navItems.map((item) => {
-          const Icon = item.icon
-          const isActive = activeTab === item.value
+          const Icon = item.icon;
+          const isActive = activeTab === item.value;
           return (
             <TabsTrigger
               key={item.value}
@@ -60,7 +67,7 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
               <Icon className="w-4 h-4" />
               {item.label}
             </TabsTrigger>
-          )
+          );
         })}
       </TabsList>
 
@@ -69,5 +76,5 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
         <p className="text-xs text-muted-foreground/60">© 2025 Peter Mbugua</p>
       </div>
     </motion.div>
-  )
+  );
 }

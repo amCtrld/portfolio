@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Instagram, Mail, Globe, ExternalLink, Twitter } from "lucide-react"
+import { Github, Linkedin, Instagram, Mail, MailPlus, ExternalLink, Twitter } from "lucide-react"
 import { NijueIcon } from "@/components/ui/nijue-icon"
+
+const nijueLink = {
+  name: "nijue.me",
+  href: "https://nijue.me/mbugua",
+  description: "My professional timeline profile",
+}
 
 const socialLinks = [
   {
@@ -11,12 +17,6 @@ const socialLinks = [
     icon: Github,
     href: "https://github.com/amCtrld",
     description: "Check out my coding journey",
-  },
-  {
-    name: "nijue.me",
-    icon: NijueIcon,
-    href: "https://nijue.me/mbugua",
-    description: "My professional timeline profile",
   },
   {
     name: "LinkedIn",
@@ -41,7 +41,7 @@ const socialLinks = [
 const contactLinks = [
   {
     name: "Work Email",
-    icon: Mail,
+    icon: MailPlus,
     href: "mailto:ceo@bowlrms.com",
     description: "Get in touch, let's work together",
   },
@@ -88,9 +88,33 @@ export function ContentLinks() {
       <h2 className="text-3xl font-bold text-foreground">Links</h2>
 
       {/* Social Links */}
-      <section>
+      <section className="mt-4">
         <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">Social</h3>
         <div className="space-y-2">
+          {/* Nijue Link - rendered separately for custom icon sizing */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0 }}
+          >
+            <Button
+              variant="ghost"
+              className="w-full justify-between h-auto py-4 px-4 rounded-xl hover:bg-white/5 group"
+              asChild
+            >
+              <a href={nijueLink.href} target="_blank" rel="noopener noreferrer">
+                <div className="flex items-center gap-4">
+                  <NijueIcon className="size-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  <div className="text-left">
+                    <p className="text-foreground font-medium">{nijueLink.name}</p>
+                    <p className="text-sm text-muted-foreground">{nijueLink.description}</p>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </Button>
+          </motion.div>
+
           {socialLinks.map((link, index) => {
             const Icon = link.icon
             return (
@@ -98,7 +122,7 @@ export function ContentLinks() {
                 key={link.name}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.3, delay: (index + 1) * 0.05 }}
               >
                 <Button
                   variant="ghost"
@@ -107,7 +131,7 @@ export function ContentLinks() {
                 >
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
                     <div className="flex items-center gap-4">
-                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <Icon className="size-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                       <div className="text-left">
                         <p className="text-foreground font-medium">{link.name}</p>
                         <p className="text-sm text-muted-foreground">{link.description}</p>
@@ -123,7 +147,7 @@ export function ContentLinks() {
       </section>
 
       {/* Contact Links */}
-      <section>
+      <section className="mt-4">
         <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">Contact</h3>
         <div className="space-y-2">
           {contactLinks.map((link, index) => {
@@ -142,7 +166,7 @@ export function ContentLinks() {
                 >
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
                     <div className="flex items-center gap-4">
-                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <Icon className="size-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                       <div className="text-left">
                         <p className="text-foreground font-medium">{link.name}</p>
                         <p className="text-sm text-muted-foreground">{link.description}</p>

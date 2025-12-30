@@ -6,7 +6,7 @@ As we wrap up 2025, it's been an intense and rewarding month of building and pla
 
 - **BowlRMS Development**: Made significant progress on the restaurant management system. The core features are solidifying, and we're preparing for the 2026 launch.
 - **nijue.me Platform**: The journey timeline feature is now fully functional. Users can showcase their professional growth with interactive timelines.
-- **Bidbee Auctions**: Beta testing phase going well. Community engagement has exceeded expectations.
+- **Bidbee Auctions**: Beta testing phase going well.
 
 ## Reflections
 

@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronDown } from "lucide-react"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import rehypeRaw from "rehype-raw"
 
 const MONTHS = [
   "January",
@@ -295,8 +297,10 @@ export function ContentJourney() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="prose prose-invert max-w-none text-muted-foreground prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-[#ff7d00] hover:prose-a:underline text-sm">
-                <ReactMarkdown>{journeyEntry.content}</ReactMarkdown>
+              <div className="prose prose-sm prose-invert max-w-none prose-headings:text-foreground prose-headings:font-semibold prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-[#ff7d00] prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-li:marker:text-[#ff7d00] prose-hr:border-border prose-blockquote:border-l-[#ff7d00] prose-blockquote:text-muted-foreground prose-code:text-[#ff7d00] prose-code:bg-white/5 prose-code:px-1 prose-code:py-0.5 prose-code:rounded">
+                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+                  {journeyEntry.content}
+                </ReactMarkdown>
               </div>
             </CardContent>
           </Card>

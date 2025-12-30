@@ -17,7 +17,7 @@ November has been a month of steady progress across all three projects. The team
 ### Bidbee
 - Auction lifecycle management system tested
 - Community moderation tools implemented
-- First community contest successfully concluded
+- First community contest unsuccessfully concluded
 
 ## Learning & Growth
 
