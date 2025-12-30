@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: "https://mbugua.nijue.me",
     siteName: "Peter Mbugua Portfolio",
     title: "Peter Mbugua — Systems Developer & Product Builder",
-    description: "Systems developer and product builder crafting scalable solutions. Specializing in full-stack development, system architecture, and turning ideas into production-ready products.",
+    description: "A visionary JavaScript developer and product builder turning ideas into production-ready products.",
     images: [
       {
         url: "/og-image.png",
