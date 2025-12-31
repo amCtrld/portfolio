@@ -106,11 +106,11 @@ const ProjectGrid = ({ projects }: { projects: typeof mainProjects }) => (
             {project.link ? (
               <Button 
                 variant="ghost" 
-                className="text-sm text-muted-foreground hover:text-foreground p-0 h-auto"
+                className="group text-sm text-muted-foreground hover:text-foreground p-1 h-auto rounded-full"
                 onClick={() => window.open(project.link, '_blank')}
               >
                 View Project
-                <ArrowUpRight className="w-4 h-4 ml-1" />
+                <ArrowUpRight className="w-4 h-4 ml-1 group-hover:text-[#ff7d00] transition-colors rotate-45 group-hover:rotate-0" />
               </Button>
             ) : (
               <span className="text-sm text-muted-foreground/50">Stay tuned</span>
