@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Tooltip,
@@ -19,10 +20,9 @@ function StareheBadge() {
 
   const tooltipText = (
     <div className="text-center">
-      <p className="font-medium text-muted-foreground">Starehe</p>
-      <p className="text-xs text-muted-foreground">Class of 2019</p>
+      <Link href="https://stareheboyscentre.org/" target="_blank" rel="noopener noreferrer" className="font-medium text-muted-foreground">SBC | C'19</Link>
     </div>
-  )
+  );
 
   return (
     <>

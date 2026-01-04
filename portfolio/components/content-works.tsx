@@ -35,6 +35,13 @@ const mainProjects = [
     color: "#525252",
     link: null,
   },
+  {
+    title: "In Miniature",
+    description: "A platform that curates officially licensed automotive icons as collectible objects",
+    status: "coming",
+    color: "#ffffff",
+    link: null,
+  },
 ]
 
 const otherProjects = [

@@ -1,17 +1,25 @@
-"use client"
+"use client";
 
-import { TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Home, User, Briefcase, Link2, Camera, FilePenLine } from "lucide-react"
+import Link from "next/link";
+import { TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Home,
+  User,
+  Briefcase,
+  Link2,
+  Camera,
+  FilePenLine,
+} from "lucide-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 
 interface MobileHeaderProps {
-  activeTab: string
-  setActiveTab: (tab: string) => void
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
 }
 
 const navItems = [
@@ -21,7 +29,7 @@ const navItems = [
   { value: "links", icon: Link2 },
   { value: "photos", icon: Camera },
   { value: "journey", icon: FilePenLine },
-]
+];
 
 function StareheBadge() {
   return (
@@ -32,14 +40,23 @@ function StareheBadge() {
           <div className="w-1/2 h-full bg-blue-400 rounded-full" />
         </div>
       </PopoverTrigger>
-      <PopoverContent side="right" className="w-auto bg-background/95 backdrop-blur-sm border-border p-3">
+      <PopoverContent
+        side="right"
+        className="w-auto bg-background/95 backdrop-blur-sm border-border p-3"
+      >
         <div className="text-center">
-          <p className="font-medium">Starehe</p>
-          <p className="text-xs text-muted-foreground">Class of 2019</p>
+          <Link
+            href="https://stareheboyscentre.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-muted-foreground"
+          >
+            SBC | C'19
+          </Link>
         </div>
       </PopoverContent>
     </Popover>
-  )
+  );
 }
 
 export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
@@ -48,14 +65,15 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
       <div className="flex items-center justify-between px-4 py-3">
         {/* Avatar & Name */}
         <div className="flex items-center gap-3">
-
           <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_left,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100 pointer-events-none" />
           <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_right,rgba(0,153,255,0.15),transparent_70%)] blur-xl scale-100 pointer-events-none" />
 
           <div className="relative">
             <Avatar className="w-24 h-24 border border-white/10">
               <AvatarImage src="/Actual.JPG" alt="Peter Mbugua" />
-              <AvatarFallback className="text-xs bg-secondary">PM</AvatarFallback>
+              <AvatarFallback className="text-xs bg-secondary">
+                PM
+              </AvatarFallback>
             </Avatar>
             {/* Starehe Badge */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10">
@@ -66,7 +84,9 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
             <span className="text-md font-bold text-foreground">
               Peter Mbugua
             </span>
-            <span className="text-sm font-normal">Building with JavaScript</span>
+            <span className="text-sm font-normal">
+              Building with JavaScript
+            </span>
           </div>
         </div>
       </div>
