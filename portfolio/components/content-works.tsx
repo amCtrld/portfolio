@@ -35,6 +35,9 @@ const mainProjects = [
     color: "#525252",
     link: null,
   },
+]
+
+const otherProjects = [
   {
     title: "In Miniature",
     description: "A platform that curates officially licensed automotive icons as collectible objects",
@@ -42,9 +45,6 @@ const mainProjects = [
     color: "#ffffff",
     link: null,
   },
-]
-
-const otherProjects = [
   {
     title: "SkillMint",
     description: "A blockchain based platform that enables institutions to Mint, issue, and verify tamper-proof skill certificates on the blockchain",
