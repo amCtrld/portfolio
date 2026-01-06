@@ -43,7 +43,7 @@ const otherProjects = [
     description: "A platform that curates officially licensed automotive icons as collectible objects",
     status: "coming",
     color: "#ffffff",
-    link: null,
+    link: "https://byratio.vercel.app/",
   },
   {
     title: "SkillMint",
