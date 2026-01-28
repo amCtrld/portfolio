@@ -39,6 +39,13 @@ const mainProjects = [
 
 const otherProjects = [
   {
+    title: "BDQueue",
+    description: "A minimal birthday timeline for small groups. BDQueue lets people drop their birthdays into a shared timeline.",
+    status: "active",
+    color: "#ff5a00",
+    link: "https://bdqueue.nijue.me/",
+  },
+  {
     title: "In Miniature",
     description: "A platform that curates officially licensed automotive icons as collectible objects",
     status: "coming",
