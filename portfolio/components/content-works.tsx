@@ -71,7 +71,7 @@ const otherProjects = [
     description: "A funnel website built for a US-based team offering Virtual services. Built with Google calendar sync for daily-on-loop updates",
     status: "active",
     color: "#4dafa6ff",
-    link: "https://fridahva.vercel.app",
+    link: "https://fridahva.com",
   },
   {
     title: "StoicVA",
