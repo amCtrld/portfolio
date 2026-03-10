@@ -62,9 +62,16 @@ const otherProjects = [
   {
     title: "OpenKura",
     description: "Another block-chain based platform that enables decentralized, transparent, secure, and immutable voting on the blockchain.",
-    status: "coming",
+    status: "active",
     color: "#24c06aff",
     link: "https://openkura.vercel.app",
+  },
+  {
+    title: "LearnPlus",
+    description: "A research platform exploring how AI-assisted tutoring impacts learning outcomes and engagement.",
+    status: "active",
+    color: "rgb(0, 0, 0)",
+    link: "https://research-learnplus.vercel.app",
   },
   {
     title: "FridahVA",
