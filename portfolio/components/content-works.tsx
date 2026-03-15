@@ -75,7 +75,7 @@ const otherProjects = [
   },
   {
     title: "DearBits",
-    description: "ML and AI-powered diabetes risk assessment tool.",
+    description: "ML and AI-powered diabetes risk assessment tool | Research Platform exploring the impact of AI on healthcare outcomes.",
     status: "active",
     color: "rgb(105, 13, 13)",
     link: "https://dearbits.vercel.app",
