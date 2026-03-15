@@ -74,6 +74,13 @@ const otherProjects = [
     link: "https://research-learnplus.vercel.app",
   },
   {
+    title: "DearBits",
+    description: "ML and AI-powered diabetes risk assessment tool.",
+    status: "active",
+    color: "rgb(105, 13, 13)",
+    link: "https://dearbits.vercel.app",
+  },
+  {
     title: "FridahVA",
     description: "A funnel website built for a US-based team offering Virtual services. Built with Google calendar sync for daily-on-loop updates",
     status: "active",
