@@ -13,10 +13,10 @@ Did you know I bear the 11th sign of the Zodiac? If you ask Google, it will tell
 
 - **The compass**: It helps knowing where you want to go, deciding that though the paths might change, the destinations remain the same.
 
-- **The pack-et**: I realised that spending some socila times with other people,not necessarily my pack, helps shift perspective.
+- **The pack-et**: I realised that spending some social times with other people, not necessarily the pack, helps shift perspective.
 
 ## The Lessons
 
 - **People**: People will break you, people will fix you. The idea is to choose and brace. When it comes to people, live the moment.
 
-- **No is not a rejection**: No is the word we choose when we do not have the right information, and when our fears of chnaging overpower the will of changing. The right information, done in the right way, can change that.
+- **No is not a rejection**: No is the word we choose when we do not have the right information, and when our fears of changing overpower the will of changing. The right information, done in the right way, can change that.
