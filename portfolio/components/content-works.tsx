@@ -8,13 +8,6 @@ import { ArrowUpRight, Clock } from "lucide-react"
 
 const mainProjects = [
   {
-    title: "FEMKutus",
-    description: "FEM Kutus Church website, still under active development. The design philosophy centers around warm and inviting colors and layout",
-    status: "active",
-    color: "#FFFFF0",
-    link: "https://femkutus.vercel.app/",
-  },
-  {
     title: "BowlRMS",
     description: "A comprehensive restaurant management and digital menus system built for modern food businesses.",
     status: "active",
@@ -35,16 +28,16 @@ const mainProjects = [
     color: "#4b2c0dff",
     link: "https://bidbee.live",
   },
-  {
-    title: "Ubantu",
-    description: "Community-driven platform fostering collaboration and shared resources.",
-    status: "coming",
-    color: "#525252",
-    link: null,
-  },
 ]
 
 const otherProjects = [
+  {
+    title: "FEMKutus",
+    description: "FEM Kutus Church website, still under active development. The design philosophy centers around warm and inviting colors and layout",
+    status: "active",
+    color: "#FFFFF0",
+    link: "https://femkutus.vercel.app/",
+  },
   {
     title: "BDQueue",
     description: "A minimal birthday timeline for small groups. BDQueue lets people drop their birthdays into a shared timeline.",
