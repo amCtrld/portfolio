@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronDown } from "lucide-react"
 import ReactMarkdown from "react-markdown"
@@ -30,7 +31,21 @@ interface JourneyEntry {
   content: string
 }
 
-export function ContentJourney() {
+interface ContentJourneyProps {
+  initialYear?: string
+  initialMonth?: string
+  onNavigate?: (year: string, month: string) => void
+}
+
+function normalizeMonth(month?: string | null): string | null {
+  if (!month) return null
+  const normalized = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase()
+  return MONTHS.includes(normalized) ? normalized : null
+}
+
+export function ContentJourney({ initialYear, initialMonth, onNavigate }: ContentJourneyProps) {
+  const router = useRouter()
+  const pathname = usePathname()
   const [years, setYears] = useState<string[]>([])
   const [months, setMonths] = useState<string[]>([])
   const [selectedYear, setSelectedYear] = useState<string | null>(null)
@@ -40,6 +55,21 @@ export function ContentJourney() {
   const [error, setError] = useState<string | null>(null)
   const [showYearDropdown, setShowYearDropdown] = useState(false)
   const [showMonthDropdown, setShowMonthDropdown] = useState(false)
+  const initialYearRef = useRef(initialYear)
+  const initialMonthRef = useRef(normalizeMonth(initialMonth))
+  const onNavigateRef = useRef(onNavigate)
+  onNavigateRef.current = onNavigate
+
+  // Sync when deep-link props change (back/forward between /journey/[year]/[month])
+  useEffect(() => {
+    const normalized = normalizeMonth(initialMonth)
+    if (initialYear && normalized) {
+      setSelectedYear((prev) => (prev === initialYear ? prev : initialYear))
+      setSelectedMonth((prev) => (prev === normalized ? prev : normalized))
+    } else if (initialYear && !initialMonth) {
+      setSelectedYear((prev) => (prev === initialYear ? prev : initialYear))
+    }
+  }, [initialYear, initialMonth])
 
   // Fetch years on mount
   useEffect(() => {
@@ -55,7 +85,10 @@ export function ContentJourney() {
         console.log("Years fetched:", data.years)
         setYears(data.years)
         if (data.years && data.years.length > 0) {
-          setSelectedYear(data.years[0])
+          const preferred = initialYearRef.current
+          setSelectedYear(
+            preferred && data.years.includes(preferred) ? preferred : data.years[0]
+          )
         } else {
           setError("No years found in Journey folder")
         }
@@ -87,7 +120,14 @@ export function ContentJourney() {
         console.log(`Months for ${selectedYear}:`, data.months)
         setMonths(data.months)
         if (data.months && data.months.length > 0) {
-          setSelectedMonth(data.months[0])
+          const preferred = initialMonthRef.current
+          if (preferred && data.months.includes(preferred)) {
+            setSelectedMonth(preferred)
+          } else {
+            setSelectedMonth(data.months[data.months.length - 1])
+          }
+          initialMonthRef.current = null
+          initialYearRef.current = undefined
         } else {
           setSelectedMonth(null)
           setError(`No entries found for year ${selectedYear}`)
@@ -105,6 +145,16 @@ export function ContentJourney() {
 
     fetchMonths()
   }, [selectedYear])
+
+  // Keep the URL shareable: /journey/[year]/[month-lowercase]
+  useEffect(() => {
+    if (!selectedYear || !selectedMonth) return
+    const target = `/journey/${selectedYear}/${selectedMonth.toLowerCase()}`
+    onNavigateRef.current?.(selectedYear, selectedMonth)
+    if (pathname !== target) {
+      router.replace(target, { scroll: false })
+    }
+  }, [selectedYear, selectedMonth, pathname, router])
 
   // Fetch journey entry when month changes
   useEffect(() => {
