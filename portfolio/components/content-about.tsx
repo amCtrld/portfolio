@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Code2, Lightbulb, Rocket, Users } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Code2, FileUser, Lightbulb, Rocket, Users } from "lucide-react"
 
 const highlights = [
   {
@@ -76,7 +77,15 @@ export function ContentAbout() {
       <div className="relative">
       {/* Bio */}
       <section>
-        <h2 className="text-3xl font-bold text-foreground mb-6">About Me</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-3xl font-bold text-foreground">About Me</h2>
+          <Button variant="outline" size="sm" asChild className="text-muted-foreground">
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              <FileUser className="w-4 h-4" />
+              CV
+            </a>
+          </Button>
+        </div>
         <p className="text-muted-foreground leading-relaxed text-lg">
           I&apos;m Peter Mbugua, a curious and persistent systems developer and product builder based in Kenya. I specialize in creating digital
           products that solve real-world problems, with a focus on clean architecture and exceptional user experiences.
