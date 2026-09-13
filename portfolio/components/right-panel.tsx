@@ -5,9 +5,9 @@ import { AvatarBlock } from "@/components/avatar-block";
 import {
   Home,
   User,
-  Briefcase,
   Link2,
   Camera,
+  CodeXml,
   FilePenLine,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,7 +20,7 @@ interface RightPanelProps {
 const navItems = [
   { value: "home", label: "Home", icon: Home },
   { value: "about", label: "About", icon: User },
-  { value: "works", label: "Works", icon: Briefcase },
+  { value: "works", label: "Works", icon: CodeXml },
   { value: "links", label: "Links", icon: Link2 },
   { value: "photos", label: "Photos", icon: Camera },
   { value: "journey", label: "Journey", icon: FilePenLine },

@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Home,
   User,
-  Briefcase,
+  CodeXml,
   Link2,
   Camera,
   FilePenLine,
@@ -25,7 +25,7 @@ interface MobileHeaderProps {
 const navItems = [
   { value: "home", icon: Home },
   { value: "about", icon: User },
-  { value: "works", icon: Briefcase },
+  { value: "works", icon: CodeXml },
   { value: "links", icon: Link2 },
   { value: "photos", icon: Camera },
   { value: "journey", icon: FilePenLine },
