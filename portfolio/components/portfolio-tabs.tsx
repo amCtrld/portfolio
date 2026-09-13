@@ -1,7 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { RightPanel } from "@/components/right-panel"
 import { LeftPanel } from "@/components/left-panel"
@@ -19,6 +18,13 @@ interface PortfolioTabsProps {
   initialMonth?: string
 }
 
+const TABS = ["home", "about", "works", "links", "photos", "journey"] as const
+
+function normalizeMonthName(month?: string | null): string | undefined {
+  if (!month) return undefined
+  return month.charAt(0).toUpperCase() + month.slice(1).toLowerCase()
+}
+
 function tabToPath(tab: string, year?: string | null, month?: string | null): string {
   if (tab !== "journey") {
     return tab === "home" ? "/" : `/${tab}`
@@ -32,33 +38,63 @@ function tabToPath(tab: string, year?: string | null, month?: string | null): st
   return "/journey"
 }
 
+function parsePath(pathname: string): { tab: string; year?: string; month?: string } {
+  const segments = pathname.split("/").filter(Boolean)
+  if (segments.length === 0) {
+    return { tab: "home" }
+  }
+  const [first, second, third] = segments
+  if (!(TABS as readonly string[]).includes(first)) {
+    return { tab: "home" }
+  }
+  if (first !== "journey") {
+    return { tab: first }
+  }
+  if (second && third) {
+    return { tab: "journey", year: second, month: normalizeMonthName(third) }
+  }
+  if (second) {
+    return { tab: "journey", year: second }
+  }
+  return { tab: "journey" }
+}
+
 export function PortfolioTabs({ initialTab, initialYear, initialMonth }: PortfolioTabsProps) {
-  const router = useRouter()
   const [activeTab, setActiveTab] = useState(initialTab)
   const [journeyContext, setJourneyContext] = useState<{ year?: string; month?: string }>({
     year: initialYear,
     month: initialMonth,
   })
+  const journeyContextRef = useRef(journeyContext)
+  journeyContextRef.current = journeyContext
 
+  // Back/forward buttons: URL changes without remounting, so sync state from pathname.
   useEffect(() => {
-    setActiveTab(initialTab)
-  }, [initialTab])
-
-  useEffect(() => {
-    setJourneyContext({ year: initialYear, month: initialMonth })
-  }, [initialYear, initialMonth])
-
-  const handleTabChange = useCallback(
-    (tab: string) => {
-      setActiveTab(tab)
-      if (tab === "journey" && journeyContext.year && journeyContext.month) {
-        router.push(tabToPath(tab, journeyContext.year, journeyContext.month), { scroll: false })
-      } else {
-        router.push(tabToPath(tab), { scroll: false })
+    const onPopState = () => {
+      const parsed = parsePath(window.location.pathname)
+      setActiveTab(parsed.tab)
+      if (parsed.tab === "journey") {
+        setJourneyContext((prev) => ({
+          year: parsed.year ?? prev.year,
+          month: parsed.month ?? prev.month,
+        }))
       }
-    },
-    [router, journeyContext]
-  )
+    }
+    window.addEventListener("popstate", onPopState)
+    return () => window.removeEventListener("popstate", onPopState)
+  }, [])
+
+  const handleTabChange = useCallback((tab: string) => {
+    setActiveTab(tab)
+    const ctx = journeyContextRef.current
+    const target =
+      tab === "journey" && ctx.year && ctx.month
+        ? tabToPath(tab, ctx.year, ctx.month)
+        : tabToPath(tab)
+    if (window.location.pathname !== target) {
+      window.history.pushState(null, "", target)
+    }
+  }, [])
 
   const handleJourneyNavigate = useCallback((year: string, month: string) => {
     setJourneyContext({ year, month })
@@ -91,8 +127,8 @@ export function PortfolioTabs({ initialTab, initialYear, initialMonth }: Portfol
             </TabsContent>
             <TabsContent value="journey" className="mt-0 h-full">
               <ContentJourney
-                initialYear={initialYear}
-                initialMonth={initialMonth}
+                initialYear={journeyContext.year}
+                initialMonth={journeyContext.month}
                 onNavigate={handleJourneyNavigate}
               />
             </TabsContent>
@@ -122,8 +158,8 @@ export function PortfolioTabs({ initialTab, initialYear, initialMonth }: Portfol
             </TabsContent>
             <TabsContent value="journey" className="mt-0">
               <ContentJourney
-                initialYear={initialYear}
-                initialMonth={initialMonth}
+                initialYear={journeyContext.year}
+                initialMonth={journeyContext.month}
                 onNavigate={handleJourneyNavigate}
               />
             </TabsContent>

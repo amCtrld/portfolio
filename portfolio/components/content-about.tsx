@@ -31,6 +31,11 @@ const highlights = [
 const timeline = [
   {
     year: "2026",
+    title: "Pre-Launch Hardening",
+    description: "Haven't launched yet — spending 2026 fixing architectural issues across BowlRMS, including the Firebase to Supabase migration and core data model reworks, while adding client-demanded features like Charts of Accounts. Launching soon.",
+  },
+  {
+    year: "2026",
     title: "Planning Launch",
     description: "All three projects, nijue.me, Bidbee, and BowlRMS MVPs are slated for launch in 2026, marking significant milestones in my journey as a product builder.",
   },
@@ -98,7 +103,7 @@ export function ContentAbout() {
 
       {/* Highlights */}
       <section>
-        <h3 className="text-xl font-semibold text-foreground mb-6">What I Bring</h3>
+        <h3 className="text-xl font-semibold text-foreground my-6">What I Bring</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {highlights.map((item, index) => {
             const Icon = item.icon
@@ -119,9 +124,34 @@ export function ContentAbout() {
         </div>
       </section>
 
+      {/* Tech Stack */}
+      <section>
+        <h3 className="text-xl font-semibold text-foreground my-6">Tech Stack</h3>
+        <ul className="space-y-3 text-muted-foreground leading-relaxed">
+          <li>
+            <strong className="font-semibold text-foreground">Languages & Frameworks:</strong> JavaScript, TypeScript, SQL, React, Next.js, Node.js, HTML/CSS
+          </li>
+          <li>
+            <strong className="font-semibold text-foreground">Backend & Data:</strong> Supabase, PostgreSQL, Firebase, API Development
+          </li>
+          <li>
+            <strong className="font-semibold text-foreground">DevOps & Infrastructure:</strong> Git, GitHub, Vercel, Bunny.net, Google Cloud, Ubuntu/Linux
+          </li>
+          <li>
+            <strong className="font-semibold text-foreground">Regional Payments:</strong> M-Pesa Daraja API, Paystack, Tuma Online
+          </li>
+          <li>
+            <strong className="font-semibold text-foreground">AI Development Tools:</strong> Claude Code, GitHub Copilot, Continue Extension, Microsoft Foundry
+          </li>
+          <li>
+            <strong className="font-semibold text-foreground">Design:</strong> UI/UX Design, Visual Design
+          </li>
+        </ul>
+      </section>
+
       {/* Timeline */}
       <section>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Journey</h3>
+        <h3 className="text-xl font-semibold text-foreground my-6">Journey</h3>
         <Accordion type="single" collapsible className="w-full">
           {timeline.map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-border">

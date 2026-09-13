@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
-import { usePathname, useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronDown } from "lucide-react"
 import ReactMarkdown from "react-markdown"
@@ -44,8 +43,6 @@ function normalizeMonth(month?: string | null): string | null {
 }
 
 export function ContentJourney({ initialYear, initialMonth, onNavigate }: ContentJourneyProps) {
-  const router = useRouter()
-  const pathname = usePathname()
   const [years, setYears] = useState<string[]>([])
   const [months, setMonths] = useState<string[]>([])
   const [selectedYear, setSelectedYear] = useState<string | null>(null)
@@ -146,15 +143,19 @@ export function ContentJourney({ initialYear, initialMonth, onNavigate }: Conten
     fetchMonths()
   }, [selectedYear])
 
-  // Keep the URL shareable: /journey/[year]/[month-lowercase]
+  // Keep the URL shareable without remounting: /journey/[year]/[month-lowercase]
   useEffect(() => {
     if (!selectedYear || !selectedMonth) return
     const target = `/journey/${selectedYear}/${selectedMonth.toLowerCase()}`
     onNavigateRef.current?.(selectedYear, selectedMonth)
-    if (pathname !== target) {
-      router.replace(target, { scroll: false })
+    const pathname = window.location.pathname
+    if (
+      pathname !== target &&
+      (pathname === "/journey" || pathname.startsWith("/journey/"))
+    ) {
+      window.history.replaceState(null, "", target)
     }
-  }, [selectedYear, selectedMonth, pathname, router])
+  }, [selectedYear, selectedMonth])
 
   // Fetch journey entry when month changes
   useEffect(() => {
