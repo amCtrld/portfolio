@@ -32,7 +32,7 @@ const timeline = [
   {
     year: "2026",
     title: "Pre-Launch Hardening",
-    description: "Haven't launched yet — spending 2026 fixing architectural issues across BowlRMS, including the Firebase to Supabase migration and core data model reworks, while adding client-demanded features like Charts of Accounts. Launching soon.",
+    description: "Haven't launched yet. Spending the beter part of 2026 fixing architectural issues across BowlRMS, including the Firebase to Supabase migration and core data model reworks, while adding client-demanded features like Charts of Accounts. Launching soon.",
   },
   {
     year: "2026",
@@ -127,7 +127,7 @@ export function ContentAbout() {
       {/* Tech Stack */}
       <section className="border-y border-border pb-6 mt-6">
         <h3 className="text-xl font-semibold text-foreground my-6">Tech Stack</h3>
-        <ul className="space-y-3 text-muted-foreground leading-relaxed">
+        <ul className="space-y-3 text-muted-foreground text-sm leading-relaxed">
           <li>
             <strong className="font-semibold text-foreground">Languages & Frameworks:</strong> JavaScript, TypeScript, SQL, React, Next.js, Node.js, HTML/CSS
           </li>
