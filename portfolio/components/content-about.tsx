@@ -125,7 +125,7 @@ export function ContentAbout() {
       </section>
 
       {/* Tech Stack */}
-      <section>
+      <section className="border-y border-border pb-6 mt-6">
         <h3 className="text-xl font-semibold text-foreground my-6">Tech Stack</h3>
         <ul className="space-y-3 text-muted-foreground leading-relaxed">
           <li>
