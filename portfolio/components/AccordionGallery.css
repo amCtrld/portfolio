@@ -141,7 +141,7 @@
   .accordion-gallery:not(.accordion-gallery--vertical) {
     flex-direction: row;
     perspective: none;
-    height: 320px !important;
+    height: 60vh !important;
   }
 
   .accordion-gallery:not(.accordion-gallery--vertical) .ag-panel {

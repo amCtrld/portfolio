@@ -5,13 +5,6 @@ import { gsap } from 'gsap';
 
 import './AccordionGallery.css';
 
-const DEFAULT_ITEMS = [
-  { image: 'https://picsum.photos/id/1015/900/1200', label: 'Canyon', link: '#' },
-  { image: 'https://picsum.photos/id/1018/900/1200', label: 'Ridgeline', link: '#' },
-  { image: 'https://picsum.photos/id/1039/900/1200', label: 'Falls', link: '#' },
-  { image: 'https://picsum.photos/id/1043/900/1200', label: 'Harbour', link: '#' },
-  { image: 'https://picsum.photos/id/1044/900/1200', label: 'Skyline', link: '#' }
-];
 
 const AccordionGallery = ({
   items = DEFAULT_ITEMS,
@@ -22,7 +15,7 @@ const AccordionGallery = ({
   height = 460,
   gap = 10,
   radius = 16,
-  expandRatio = 0.52,
+  expandRatio = 0.54,
   orientation = 'horizontal',
   duration = 0.6,
   ease = 'power3.out',

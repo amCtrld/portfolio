@@ -69,9 +69,9 @@ export function ContentPhotos() {
       className="max-w-4xl relative"
     >
       <h2 className="text-3xl font-bold text-foreground mb-8">Photos</h2>
-      <AccordionGallery items={photos} defaultIndex={0} height={460} />
+      <AccordionGallery items={photos} defaultIndex={0} height={460} expandRatio={0.90}/>
       <p className="text-sm text-muted-foreground text-center mt-8">
-        A glimpse into my world — work, travel, and everything in between.
+        A glimpse into my world; work, travel, and everything in between.
       </p>
     </motion.div>
   )
