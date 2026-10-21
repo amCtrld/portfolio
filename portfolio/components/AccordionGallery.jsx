@@ -12,6 +12,7 @@ const AccordionGallery = ({
   accentColor = '#ffffff',
   overlayColor = '#060010',
   textColor = '#ffffff',
+  edgeColor = '#ef4444',
   height = 460,
   gap = 10,
   radius = 16,
@@ -25,6 +26,10 @@ const AccordionGallery = ({
   trigger = 'hover',
   showLabels = true,
   grayscale = true,
+  swipe = true,
+  swipeThreshold = 40,
+  edgeMax = 32,
+  edgeResistance = 0.35,
   className = ''
 }) => {
   const rootRef = useRef(null);
@@ -35,10 +40,17 @@ const AccordionGallery = ({
   const tlRef = useRef(null);
   const firstRunRef = useRef(true);
   const mediaSizeRef = useRef(320);
+  const glowStartRef = useRef(null);
+  const glowEndRef = useRef(null);
+  const swipedRef = useRef(false);
 
   const vertical = orientation === 'vertical';
   const count = items.length;
   const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
+
+  // Latest active index for the touch handlers (avoids re-binding listeners on every change)
+  const activeRef = useRef(active);
+  activeRef.current = active;
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
@@ -149,14 +161,115 @@ const AccordionGallery = ({
     []
   );
 
+  // ---- Touch swipe + edge bounce (horizontal galleries only) ----
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || !swipe || vertical) return;
+
+    let startX = 0;
+    let startY = 0;
+    let pointerId = null;
+    let locked = false; // true once we've decided this gesture is a horizontal swipe
+    let dxLast = 0;
+
+    const glowFor = dx => (dx > 0 ? glowStartRef.current : glowEndRef.current);
+
+    const springBack = () => {
+      const dur = prefersReduced ? 0 : 0.7;
+      gsap.to(el, { x: 0, duration: dur, ease: 'elastic.out(1, 0.45)', overwrite: 'auto' });
+      gsap.to([glowStartRef.current, glowEndRef.current], {
+        opacity: 0,
+        duration: prefersReduced ? 0 : 0.45,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    };
+
+    const onDown = e => {
+      if (e.pointerType !== 'touch') return;
+      pointerId = e.pointerId;
+      startX = e.clientX;
+      startY = e.clientY;
+      dxLast = 0;
+      locked = false;
+      swipedRef.current = false;
+      gsap.killTweensOf(el);
+    };
+
+    const onMove = e => {
+      if (e.pointerId !== pointerId) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      if (!locked) {
+        if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(dy)) return;
+        locked = true;
+      }
+
+      dxLast = dx;
+      const i = activeRef.current;
+      const atStartEdge = i === 0 && dx > 0; // swiping right on the first photo
+      const atEndEdge = i === count - 1 && dx < 0; // swiping left on the last photo
+
+      if (atStartEdge || atEndEdge) {
+        const pull = Math.min(edgeMax, Math.abs(dx) * edgeResistance);
+        const offset = Math.sign(dx) * pull;
+        const intensity = pull / edgeMax;
+        gsap.set(el, { x: offset });
+        gsap.set(glowFor(dx), { opacity: intensity });
+        gsap.set(atStartEdge ? glowEndRef.current : glowStartRef.current, { opacity: 0 });
+      }
+    };
+
+    const onUp = e => {
+      if (e.pointerId !== pointerId) return;
+      pointerId = null;
+      if (!locked) return;
+      locked = false;
+
+      swipedRef.current = true;
+      setTimeout(() => (swipedRef.current = false), 350);
+
+      const i = activeRef.current;
+      const dx = dxLast;
+
+      if (Math.abs(dx) >= swipeThreshold) {
+        if (dx < 0 && i < count - 1) setActive(i + 1);
+        else if (dx > 0 && i > 0) setActive(i - 1);
+      }
+      springBack();
+    };
+
+    const onCancel = e => {
+      if (e.pointerId !== pointerId) return;
+      pointerId = null;
+      locked = false;
+      springBack();
+    };
+
+    el.addEventListener('pointerdown', onDown);
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerup', onUp);
+    el.addEventListener('pointercancel', onCancel);
+
+    return () => {
+      el.removeEventListener('pointerdown', onDown);
+      el.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerup', onUp);
+      el.removeEventListener('pointercancel', onCancel);
+      gsap.killTweensOf(el);
+      gsap.set(el, { x: 0 });
+    };
+  }, [swipe, vertical, count, swipeThreshold, edgeMax, edgeResistance, prefersReduced]);
+
   const handleEnter = i => {
     if (trigger === 'hover') setActive(i);
   };
 
   const handleClick = (i, e) => {
-    if (i !== active) {
+    if (swipedRef.current || i !== active) {
       e.preventDefault();
-      setActive(i);
+      if (!swipedRef.current) setActive(i);
     }
   };
 
@@ -173,11 +286,12 @@ const AccordionGallery = ({
   return (
     <div
       ref={rootRef}
-      className={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}${className ? ` ${className}` : ''}`}
+      className={`accordion-gallery${vertical ? ' accordion-gallery--vertical' : ''}${swipe && !vertical ? ' accordion-gallery--swipe' : ''}${className ? ` ${className}` : ''}`}
       style={{
         '--ag-accent': accentColor,
         '--ag-overlay': overlayColor,
         '--ag-text': textColor,
+        '--ag-edge': edgeColor,
         '--ag-gap': `${gap}px`,
         '--ag-radius': `${radius}px`,
         height: vertical ? `${Math.round(height * 1.6)}px` : `${height}px`
@@ -221,6 +335,12 @@ const AccordionGallery = ({
           </Tag>
         );
       })}
+      {swipe && !vertical && (
+        <>
+          <span className="ag-edge ag-edge--start" ref={glowStartRef} aria-hidden="true" />
+          <span className="ag-edge ag-edge--end" ref={glowEndRef} aria-hidden="true" />
+        </>
+      )}
     </div>
   );
 };

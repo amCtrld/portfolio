@@ -2,10 +2,12 @@
   --ag-accent: #ffffff;
   --ag-overlay: #060010;
   --ag-text: #ffffff;
+  --ag-edge: #ef4444;
   --ag-gap: 10px;
   --ag-radius: 16px;
   --ag-media-size: 320px;
 
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: var(--ag-gap);
@@ -17,6 +19,46 @@
 
 .accordion-gallery--vertical {
   flex-direction: column;
+}
+
+/* Let the browser keep handling vertical page scroll; we handle horizontal swipes */
+.accordion-gallery--swipe {
+  touch-action: pan-y;
+}
+
+/* Red edge glow shown when swiping past the first / last photo */
+.ag-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ag-edge--start {
+  left: 0;
+  border-radius: var(--ag-radius) 0 0 var(--ag-radius);
+  border-left: 3px solid var(--ag-edge);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ag-edge) 60%, transparent),
+    transparent
+  );
+  box-shadow: -6px 0 24px color-mix(in srgb, var(--ag-edge) 55%, transparent);
+}
+
+.ag-edge--end {
+  right: 0;
+  border-radius: 0 var(--ag-radius) var(--ag-radius) 0;
+  border-right: 3px solid var(--ag-edge);
+  background: linear-gradient(
+    270deg,
+    color-mix(in srgb, var(--ag-edge) 60%, transparent),
+    transparent
+  );
+  box-shadow: 6px 0 24px color-mix(in srgb, var(--ag-edge) 55%, transparent);
 }
 
 .ag-panel {
