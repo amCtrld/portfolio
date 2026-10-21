@@ -42,19 +42,19 @@ const photos = [
   },
   {
     image: "/me5.jpg",
-    label: "School days",
+    label: "I see you.",
     alt: "A group of students outside a building",
     link: "",
   },
   {
     image: "/me6.jpg",
-    label: "Portrait",
+    label: "Musically inclined",
     alt: "Low-light portrait",
     link: "",
   },
   {
     image: "/me7.jpg",
-    label: "Portrait with headphones",
+    label: "High School days",
     alt: "Wearing headphones",
     link: "",
   },
