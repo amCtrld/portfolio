@@ -28,6 +28,13 @@ const mainProjects = [
     color: "#4b2c0dff",
     link: "https://bidbee.live",
   },
+  {
+    title: "Zawidi",
+    description: "An AI-powered gifting concierge and marketplace that curates personalized local experiences and products based on recipient context.",
+    status: "active",
+    color: "#ff3131",
+    link: "https://zawidi.vercel.app",
+  },
 ]
 
 const otherProjects = [
@@ -132,8 +139,8 @@ const ProjectGrid = ({ projects }: { projects: typeof mainProjects }) => (
           </CardHeader>
           <CardContent>
             {project.link ? (
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 className="group text-sm text-muted-foreground hover:text-foreground p-1 h-auto rounded-full"
                 onClick={() => window.open(project.link, '_blank')}
               >
@@ -164,22 +171,22 @@ export function ContentWorks() {
       </div>
 
       <div className="relative">
-      <h2 className="text-3xl font-bold text-foreground mb-8">Works</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-8">Works</h2>
 
-      <Tabs defaultValue="main" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-8 bg-transparent">
-          <TabsTrigger value="main" className="rounded-none border-0 border-b-2 border-muted">Main</TabsTrigger>
-          <TabsTrigger value="others" className="rounded-none border-0 border-b-2 border-muted">Others</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="main">
-          <ProjectGrid projects={mainProjects} />
-        </TabsContent>
-        
-        <TabsContent value="others">
-          <ProjectGrid projects={otherProjects} />
-        </TabsContent>
-      </Tabs>
+        <Tabs defaultValue="main" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 mb-8 bg-transparent">
+            <TabsTrigger value="main" className="rounded-none border-0 border-b-2 border-muted">Main</TabsTrigger>
+            <TabsTrigger value="others" className="rounded-none border-0 border-b-2 border-muted">Others</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="main">
+            <ProjectGrid projects={mainProjects} />
+          </TabsContent>
+
+          <TabsContent value="others">
+            <ProjectGrid projects={otherProjects} />
+          </TabsContent>
+        </Tabs>
       </div>
     </motion.div>
   )
