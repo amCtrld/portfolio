@@ -10,6 +10,7 @@ import { ContentWorks } from "@/components/content-works"
 import { ContentLinks } from "@/components/content-links"
 import { ContentPhotos } from "@/components/content-photos"
 import { ContentJourney } from "@/components/content-journey"
+import { ContentVision } from "@/components/content-vision"
 import { MobileHeader } from "@/components/mobile-header"
 
 interface PortfolioTabsProps {
@@ -18,7 +19,7 @@ interface PortfolioTabsProps {
   initialMonth?: string
 }
 
-const TABS = ["home", "about", "works", "links", "photos", "journey"] as const
+const TABS = ["home", "about", "works", "links", "photos", "journey", "vision"] as const
 
 function normalizeMonthName(month?: string | null): string | undefined {
   if (!month) return undefined
@@ -132,6 +133,9 @@ export function PortfolioTabs({ initialTab, initialYear, initialMonth }: Portfol
                 onNavigate={handleJourneyNavigate}
               />
             </TabsContent>
+            <TabsContent value="vision" className="mt-0 h-full">
+              <ContentVision />
+            </TabsContent>
           </LeftPanel>
 
           {/* Right Panel - fixed sidebar */}
@@ -162,6 +166,9 @@ export function PortfolioTabs({ initialTab, initialYear, initialMonth }: Portfol
                 initialMonth={journeyContext.month}
                 onNavigate={handleJourneyNavigate}
               />
+            </TabsContent>
+            <TabsContent value="vision" className="mt-0">
+              <ContentVision />
             </TabsContent>
           </div>
         </div>

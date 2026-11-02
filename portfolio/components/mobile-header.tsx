@@ -10,6 +10,7 @@ import {
   Link2,
   Camera,
   FilePenLine,
+  Goal,
 } from "lucide-react";
 import {
   Popover,
@@ -89,6 +90,19 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
             </span>
           </div>
         </div>
+        <button
+          type="button"
+          onClick={() => setActiveTab("vision")}
+          aria-label="Vision"
+          title="Vision"
+          className={`shrink-0 rounded-lg p-2 transition-colors ${
+            activeTab === "vision"
+              ? "bg-white/10 text-foreground"
+              : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+          }`}
+        >
+          <Goal className="h-6 w-6" />
+        </button>
       </div>
 
       {/* Horizontal Tabs */}

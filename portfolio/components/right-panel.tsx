@@ -1,5 +1,4 @@
 "use client";
-
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AvatarBlock } from "@/components/avatar-block";
 import {
@@ -9,6 +8,7 @@ import {
   Camera,
   CodeXml,
   FilePenLine,
+  Goal,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -24,6 +24,7 @@ const navItems = [
   { value: "links", label: "Links", icon: Link2 },
   { value: "photos", label: "Photos", icon: Camera },
   { value: "journey", label: "Journey", icon: FilePenLine },
+  { value: "vision", label: "Vision", icon: Goal },
 ];
 
 export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
@@ -32,20 +33,20 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="w-[380px] min-w-[380px] h-full border-l border-border bg-card/50 flex flex-col items-center py-12 px-8"
+      // gap-12 is now the ONLY spacing between header, tabs and footer.
+      // overflow-y-auto stops flex children from being squeezed when content is taller than the viewport.
+      className="w-[380px] min-w-[380px] h-full border-l border-border bg-card/50 flex flex-col items-center gap-12 py-12 px-8 overflow-y-auto"
     >
-      <div className="mb-12">
-        {/* Avatar Block */}
+      {/* Header: shrink-0 so it never gets compressed */}
+      <div className="shrink-0 flex flex-col items-center gap-6">
         <AvatarBlock />
-
-        {/* Tagline */}
-        <p className="text-muted-foreground text-sm text-center mt-6 mb-10 leading-relaxed">
-          Peter Mbugua — Building with JavaScript.
+        <p className="text-muted-foreground text-sm text-center leading-relaxed">
+          <span className="font-bold text-foreground">Peter Mbugua:</span> Building with JavaScript.
         </p>
       </div>
 
       {/* Navigation Tabs */}
-      <TabsList className="flex flex-col w-full bg-transparent gap-2 mt-12">
+      <TabsList className="shrink-0 flex flex-col w-full h-auto bg-transparent gap-2 p-0">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.value;
@@ -71,8 +72,8 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
         })}
       </TabsList>
 
-      {/* Footer */}
-      <div className="mt-auto pt-8">
+      {/* Footer: mt-auto pins it to the bottom when there's spare room */}
+      <div className="mt-auto shrink-0">
         <p className="text-xs text-muted-foreground/60">© 2025 Peter Mbugua</p>
       </div>
     </motion.div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
 import { PortfolioTabs } from "@/components/portfolio-tabs"
 
-const TABS = ["home", "about", "works", "links", "photos", "journey"] as const
+const TABS = ["home", "about", "works", "links", "photos", "journey", "vision"] as const
 
 type Tab = (typeof TABS)[number]
 
@@ -12,6 +12,7 @@ const TAB_TITLES: Record<Exclude<Tab, "home">, string> = {
   links: "Links",
   photos: "Photos",
   journey: "Journey",
+  vision: "Vision",
 }
 
 export function generateStaticParams() {
