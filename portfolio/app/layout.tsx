@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Peter Mbugua",
   },
   
-  description: "Systems developer and product builder crafting scalable solutions. Specializing in full-stack development, system architecture, and turning ideas into production-ready products.",
+  description: "Systems developer and product builder in Kenya. Full-stack development, clean architecture and products built from concept to production.",
   
   keywords: [
     "systems developer",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: "https://mbugua.nijue.me",
     siteName: "Peter Mbugua Portfolio",
     title: "Peter Mbugua — Systems Developer & Product Builder",
-    description: "A visionary JavaScript developer and product builder turning ideas into production-ready products.",
+    description: "Systems developer and product builder in Kenya, building BowlRMS and Zawidi with JavaScript.",
     images: [
       {
         url: "/og-image.png",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Peter Mbugua — Systems Developer & Product Builder",
-    description: "Systems developer and product builder crafting scalable solutions.",
+    description: "Systems developer and product builder in Kenya, building BowlRMS and Zawidi with JavaScript.",
     creator: "@mbugua_",
     images: ["/og-image.png"],
   },

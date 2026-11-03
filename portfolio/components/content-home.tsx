@@ -22,21 +22,12 @@ export function ContentHome() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-balance mt-24"
         >
-          Building digital
+          Building systems
           <br />
-          <span className="text-gray-500">experiences</span>
+          <span className="text-gray-500">that solve</span>
           <br />
-          that matter.
+          real problems.
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-lg"
-        >
-          Currently working on <span className="">BowlRMS, nijue.me and Bidbee</span>{" "}
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,8 +35,8 @@ export function ContentHome() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-12 flex items-center gap-4"
         >
-          <div className="h-px w-12 bg-border" />
-          <p className="text-sm text-muted-foreground">Systems Developer & Product Builder</p>
+          <div className="h-px w-12 bg-[#ff7d00]" />
+          <p className="text-sm text-muted-foreground">Currently building BowlRMS and Zawidi</p>
         </motion.div>
 
         <motion.div

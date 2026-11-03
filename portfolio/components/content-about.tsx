@@ -3,28 +3,28 @@
 import { motion } from "framer-motion"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { Code2, FileUser, Lightbulb, Rocket, Users } from "lucide-react"
+import { BookOpen, Cpu, Database, FileUser, Wallet } from "lucide-react"
 
 const highlights = [
   {
-    icon: Code2,
-    title: "Technical Foundation",
-    description: "Deep expertise in full-stack development, system architecture, and modern web technologies.",
+    icon: Wallet,
+    title: "Built for Kenyan Payments",
+    description: "Working with M-Pesa Daraja, Paystack and Tuma Online, built around how people here actually pay.",
   },
   {
-    icon: Lightbulb,
-    title: "Problem Solver",
-    description: "Passionate about identifying complex problems and building elegant solutions.",
+    icon: Database,
+    title: "Architecture, Fixed Early",
+    description: "Migrating BowlRMS from Firebase to Supabase and reworking core data models before launch, not after.",
   },
   {
-    icon: Rocket,
-    title: "Product Builder",
-    description: "Experience taking ideas from concept to production, with a focus on user experience.",
+    icon: Cpu,
+    title: "Hardware Roots",
+    description: "Started with Arduino and electronics in 2021, then moved into full-stack web development in 2023.",
   },
   {
-    icon: Users,
-    title: "Team Player",
-    description: "Collaborative approach to building products, with strong communication skills.",
+    icon: BookOpen,
+    title: "Building in Public",
+    description: "A monthly, unfiltered Journey log of what shipped, what broke and what I learned.",
   },
 ]
 
@@ -32,27 +32,27 @@ const timeline = [
   {
     year: "2026",
     title: "Pre-Launch Hardening",
-    description: "Haven't launched yet. Spending the beter part of 2026 fixing architectural issues across BowlRMS, including the Firebase to Supabase migration and core data model reworks, while adding client-demanded features like Charts of Accounts. Launching soon.",
+    description: "Haven't launched yet. I've spent the better part of 2026 fixing architectural issues across BowlRMS, including the Firebase to Supabase migration and core data model reworks, while adding client-demanded features like Charts of Accounts. Launching soon.",
   },
   {
     year: "2026",
     title: "Planning Launch",
-    description: "All three projects, nijue.me, Bidbee, and BowlRMS MVPs are slated for launch in 2026, marking significant milestones in my journey as a product builder.",
+    description: "nijue.me, Bidbee and BowlRMS are all slated to launch their MVPs in 2026, each a milestone in my journey as a product builder.",
   },
   {
     year: "2025",
     title: "Building nijue.me & Bidbee",
-    description: "Towards the end of 2025, started working on nijue.me and Bidbee. nijue.me is a platform where you can timeline your journey and showcase your growth while Bidbee is an localized bidding platform.",
+    description: "Towards the end of 2025, I started working on nijue.me and Bidbee. nijue.me is a platform for timelining your journey and showcasing your growth, while Bidbee is a localized bidding platform.",
   },
   {
     year: "2025",
     title: "BowlRMS Development",
-    description: "Began the development of BowlRMS, a comprehensive restaurant management and digital menus tool.",
+    description: "Began the development of BowlRMS, a comprehensive restaurant management and digital menu tool.",
   },
   {
     year: "2024",
     title: "Systems Engineering, ALX",
-    description: "Albeit I participated in the ALX Systems Engineering program for three months, the experience provided me with a strong foundation in systems fundamentals and broadened my perspective on how to approach engineering challenges.",
+    description: "I took part in the ALX Systems Engineering program for three months. It gave me a strong foundation in systems fundamentals and broadened how I approach engineering challenges.",
   },
   {
     year: "2023",
@@ -62,7 +62,7 @@ const timeline = [
   {
     year: "2021",
     title: "Arduino & Electronics Enthusiast",
-    description: "Initiated my exploration into electronics and programming through Arduino projects, sparking my passion for technology and innovation.",
+    description: "Started exploring electronics and programming through Arduino projects, sparking my passion for technology and innovation.",
   },
 ]
 
@@ -72,7 +72,7 @@ export function ContentAbout() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="max-w-2xl space-y-12 relative"
+      className="max-w-2xl relative"
     >
       {/* Grid background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -92,18 +92,20 @@ export function ContentAbout() {
           </Button>
         </div>
         <p className="text-muted-foreground leading-relaxed text-lg">
-          I&apos;m Peter Mbugua, a curious and persistent systems developer and product builder based in Kenya. I specialize in creating digital
-          products that solve real-world problems, with a focus on clean architecture and exceptional user experiences.
+          I&apos;m Peter Mbugua, a systems developer and product builder in Kenya. I started with Arduino boards in 2021,
+          began building web software in 2023, and now build full-stack products on Next.js and Supabase, designed
+          around how business actually works here, including M-Pesa and local payment rails.
         </p>
         <p className="text-muted-foreground leading-relaxed text-lg mt-4">
-          When I&apos;m not coding, you&apos;ll find me exploring new technologies, reading about business strategy, or
-          working on my next big idea.
+          Right now I&apos;m getting BowlRMS, nijue.me and Zawidi ready to launch, reworking the architecture before real
+          users arrive. Longer term, I&apos;m working toward Tandu, a platform to make hands-on robotics and STEM
+          affordable for Kenyan classrooms.
         </p>
       </section>
 
       {/* Highlights */}
       <section>
-        <h3 className="text-xl font-semibold text-foreground my-6">What I Bring</h3>
+        <h3 className="text-xl font-semibold text-foreground my-6">How I Work</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {highlights.map((item, index) => {
             const Icon = item.icon
@@ -151,7 +153,7 @@ export function ContentAbout() {
 
       {/* Timeline */}
       <section>
-        <h3 className="text-xl font-semibold text-foreground my-6">Journey</h3>
+        <h3 className="text-xl font-semibold text-foreground my-6">Timeline</h3>
         <Accordion type="single" collapsible className="w-full">
           {timeline.map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-border">

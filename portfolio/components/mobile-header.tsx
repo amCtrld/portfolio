@@ -9,14 +9,14 @@ import {
   CodeXml,
   Link2,
   Camera,
-  FilePenLine,
-  Goal,
+  Waypoints,
 } from "lucide-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { VisionHintButton } from "@/components/VisionHint";
 
 interface MobileHeaderProps {
   activeTab: string;
@@ -29,17 +29,21 @@ const navItems = [
   { value: "works", icon: CodeXml },
   { value: "links", icon: Link2 },
   { value: "photos", icon: Camera },
-  { value: "journey", icon: FilePenLine },
+  { value: "journey", icon: Waypoints },
 ];
 
 function StareheBadge() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div className="flex h-5 w-5 gap-0.5 rounded-full cursor-pointer transition-transform hover:scale-110">
+        <button
+          type="button"
+          aria-label="Starehe Boys' Centre"
+          className="flex h-5 w-5 gap-0.5 rounded-full cursor-pointer transition-transform hover:scale-110"
+        >
           <div className="w-1/2 h-full bg-red-600 rounded-full" />
           <div className="w-1/2 h-full bg-blue-400 rounded-full" />
-        </div>
+        </button>
       </PopoverTrigger>
       <PopoverContent
         side="right"
@@ -77,7 +81,7 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
               </AvatarFallback>
             </Avatar>
             {/* Starehe Badge */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10">
+            <div className="absolute bottom-[14.6%] right-[14.6%] translate-x-1/2 translate-y-1/2 z-10">
               <StareheBadge />
             </div>
           </div>
@@ -86,23 +90,19 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
               Peter Mbugua
             </span>
             <span className="text-sm font-normal">
-              Building with JavaScript
+              Systems Developer & Product Builder
+            </span>
+            <span className="text-sm font-normal">
+              Kenya
             </span>
           </div>
         </div>
-        <button
-          type="button"
-          onClick={() => setActiveTab("vision")}
-          aria-label="Vision"
-          title="Vision"
-          className={`shrink-0 rounded-lg p-2 transition-colors ${
-            activeTab === "vision"
-              ? "bg-white/10 text-foreground"
-              : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
-          }`}
-        >
-          <Goal className="h-6 w-6" />
-        </button>
+
+        {/* Vision shortcut, with first-visit hint */}
+        <VisionHintButton
+          isActive={activeTab === "vision"}
+          onSelect={() => setActiveTab("vision")}
+        />
       </div>
 
       {/* Horizontal Tabs */}
@@ -118,10 +118,9 @@ export function MobileHeader({ activeTab, setActiveTab }: MobileHeaderProps) {
               className={`
                 flex-1 py-2 px-3 rounded-none text-md border-0 border-b-2 border-muted
                 transition-all duration-200
-                ${
-                  isActive
-                    ? "bg-white/10 text-foreground"
-                    : "text-muted-foreground"
+                ${isActive
+                  ? "bg-white/10 text-foreground"
+                  : "text-muted-foreground"
                 }
               `}
             >

@@ -15,6 +15,13 @@ const mainProjects = [
     link: "https://bowlrms.com",
   },
   {
+    title: "Zawidi",
+    description: "An AI-powered gifting concierge and marketplace that curates personalized local experiences and products based on recipient context.",
+    status: "active",
+    color: "#ff3131",
+    link: "https://zawidi.vercel.app",
+  },
+  {
     title: "nijue.me",
     description: "A platform that lets professionals share their journey through a timeline, self-pitch video, and AI-powered summary.",
     status: "active",
@@ -27,13 +34,6 @@ const mainProjects = [
     status: "active",
     color: "#4b2c0dff",
     link: "https://bidbee.live",
-  },
-  {
-    title: "Zawidi",
-    description: "An AI-powered gifting concierge and marketplace that curates personalized local experiences and products based on recipient context.",
-    status: "active",
-    color: "#ff3131",
-    link: "https://zawidi.vercel.app",
   },
 ]
 

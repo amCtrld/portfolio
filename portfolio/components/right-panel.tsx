@@ -7,7 +7,7 @@ import {
   Link2,
   Camera,
   CodeXml,
-  FilePenLine,
+  Waypoints,
   Goal,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -23,7 +23,7 @@ const navItems = [
   { value: "works", label: "Works", icon: CodeXml },
   { value: "links", label: "Links", icon: Link2 },
   { value: "photos", label: "Photos", icon: Camera },
-  { value: "journey", label: "Journey", icon: FilePenLine },
+  { value: "journey", label: "Journey", icon: Waypoints },
   { value: "vision", label: "Vision", icon: Goal },
 ];
 
@@ -35,13 +35,13 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       // gap-12 is now the ONLY spacing between header, tabs and footer.
       // overflow-y-auto stops flex children from being squeezed when content is taller than the viewport.
-      className="w-[380px] min-w-[380px] h-full border-l border-border bg-card/50 flex flex-col items-center gap-12 py-12 px-8 overflow-y-auto"
+      className="w-[380px] min-w-[380px] h-full border-l border-border bg-card/50 flex flex-col items-center gap-6 py-12 px-8 overflow-y-auto"
     >
       {/* Header: shrink-0 so it never gets compressed */}
       <div className="shrink-0 flex flex-col items-center gap-6">
         <AvatarBlock />
-        <p className="text-muted-foreground text-sm text-center leading-relaxed">
-          <span className="font-bold text-foreground">Peter Mbugua:</span> Building with JavaScript.
+        <p className="text-muted-foreground text-sm text-center leading-relaxed flex flex-col gap-1">
+          <span className="font-bold text-foreground">Peter Mbugua</span> <span>Systems Developer & Product Builder</span> <span className="text-muted-foreground/50"> Kenya</span>
         </p>
       </div>
 
@@ -58,10 +58,9 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
               className={`
                 w-full justify-start gap-3 px-4 py-3 rounded-xl text-sm font-medium
                 transition-all duration-200 ease-out
-                ${
-                  isActive
-                    ? "bg-white/10 text-foreground border border-white/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                ${isActive
+                  ? "bg-white/10 text-foreground border border-white/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                 }
               `}
             >
@@ -74,7 +73,7 @@ export function RightPanel({ activeTab, setActiveTab }: RightPanelProps) {
 
       {/* Footer: mt-auto pins it to the bottom when there's spare room */}
       <div className="mt-auto shrink-0">
-        <p className="text-xs text-muted-foreground/60">© 2025 Peter Mbugua</p>
+        <p className="text-xs text-muted-foreground/60">© {new Date().getFullYear()} Peter Mbugua</p>
       </div>
     </motion.div>
   );

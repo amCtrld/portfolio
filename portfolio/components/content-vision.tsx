@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Network, HandCoins, Waypoints, FlaskConical } from "lucide-react"
+import { Network, HandCoins, Waypoints, FlaskConical, Dot } from "lucide-react"
 
 const pillars = [
   {
@@ -74,14 +74,14 @@ export function ContentVision() {
           <h3 className="text-xl font-semibold text-foreground my-6">The Ultimate Horizon: Regional STEM Labs</h3>
           <ul className="space-y-3 text-muted-foreground text-sm leading-relaxed">
             <li className="flex items-start gap-3">
-              <FlaskConical className="w-4 h-4 mt-0.5 shrink-0 text-[#ff7d00]" />
+              <Dot className="w-4 h-4 mt-0.5 shrink-0 text-[#ff7d00]" />
               <span>
                 <strong className="font-semibold text-foreground">Open-access hubs:</strong> regional spaces where
                 learners advance from classroom kits to prototyping and robotics fabrication.
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <Waypoints className="w-4 h-4 mt-0.5 shrink-0 text-[#ff7d00]" />
+              <Dot className="w-4 h-8 mt-0.5 shrink-0 text-[#ff7d00]" />
               <span>
                 <strong className="font-semibold text-foreground">Community & showcase:</strong> places to
                 demonstrate innovations, host robotics leagues, collaborate, and build real-world solutions.
