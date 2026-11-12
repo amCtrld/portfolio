@@ -39,6 +39,13 @@ const mainProjects = [
 
 const otherProjects = [
   {
+    title: "Project Tandu",
+    description: "Project Tandu is the first initiative within the wider Tandu Platforms vision. See the Vision Section for more details. The project is still under active development.",
+    status: "coming",
+    color: "#263f34",
+    link: "https://tandu.vercel.app",
+  },
+  {
     title: "FEMKutus",
     description: "FEM Kutus Church website, still under active development. The design philosophy centers around warm and inviting colors and layout",
     status: "active",
