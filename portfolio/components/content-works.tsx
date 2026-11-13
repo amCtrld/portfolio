@@ -12,7 +12,7 @@ const mainProjects = [
     description: "A comprehensive restaurant management and digital menus system built for modern food businesses.",
     status: "active",
     color: "#ff7d00",
-    link: "https://bowlrms.com",
+    link: "https://bowlrms.com/changelog",
   },
   {
     title: "Zawidi",
